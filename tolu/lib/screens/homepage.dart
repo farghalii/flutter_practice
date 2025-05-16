@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:tolu/components/category_items.dart';
+import 'package:tolu/screens/familyPage.dart';
+import 'package:tolu/widgets/category_items.dart';
 import 'package:tolu/screens/numberspage.dart';
+import 'package:tolu/widgets/family_items.dart';
 
 class TokuApp extends StatelessWidget {
   @override
@@ -31,7 +33,7 @@ class HomePage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Category(
-            ontap: () { 
+            ontap: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) {
@@ -43,6 +45,14 @@ class HomePage extends StatelessWidget {
             color: Colors.orange,
           ),
           Category(
+            ontap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) {
+                  return Familypage();
+                }),
+              );
+            },
             color: Color(0xff458B00),
             text: 'Family Members',
           ),

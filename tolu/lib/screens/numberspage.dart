@@ -1,54 +1,60 @@
 import 'package:flutter/material.dart';
-import 'package:tolu/components/numbers_items.dart';
-import 'package:tolu/models/numbers.dart';
+import 'package:tolu/widgets/numbers_items.dart';
+import 'package:tolu/models/Info.dart';
 
 class NumbersPage extends StatelessWidget {
-  final List<Numbers> numbers = const [
-    Numbers(
+  final List<Info> numbers = [
+    Info(
         image: 'assets/images/numbers/number_one.png',
         enname: 'One',
-        jpname: 'Ichi'),
-    Numbers(
+        jpname: 'Ichi',
+        sound: 'sounds/numbers/number_one_sound.mp3'),
+    Info(
         image: 'assets/images/numbers/number_two.png',
         enname: 'Two',
-        jpname: "Ni"),
-    Numbers(
+        jpname: "Ni",
+        sound: 'sounds/numbers/number_two_sound.mp3'),
+    Info(
         image: 'assets/images/numbers/number_three.png',
         enname: 'Three',
-        jpname: "San"),
-    Numbers(
+        jpname: "San",
+        sound: 'sounds/numbers/number_three_sound.mp3'),
+    Info(
         image: 'assets/images/numbers/number_four.png',
         enname: 'Four',
-        jpname: "Shi"),
-    Numbers(
+        jpname: "Shi",
+        sound: 'sounds/numbers/number_four_sound.mp3'),
+    Info(
         image: 'assets/images/numbers/number_five.png',
         enname: 'Five',
-        jpname: "Go"),
-    Numbers(
+        jpname: "Go",
+        sound: 'sounds/numbers/number_five_sound.mp3'),
+    Info(
         image: 'assets/images/numbers/number_six.png',
         enname: 'Six',
-        jpname: 'Roku'),
-    Numbers(
+        jpname: 'Roku',
+        sound: 'sounds/numbers/number_six_sound.mp3'),
+    Info(
         image: 'assets/images/numbers/number_seven.png',
         enname: 'Seven',
-        jpname: 'Sebun'),
-    Numbers(
+        jpname: 'Sebun',
+        sound: 'sounds/numbers/number_seven_sound.mp3'),
+    Info(
         image: 'assets/images/numbers/number_eight.png',
         enname: 'Eight',
-        jpname: 'Hachi'),
-    Numbers(
+        jpname: 'Hachi',
+        sound: 'sounds/numbers/number_eight_sound.mp3'),
+    Info(
         image: 'assets/images/numbers/number_nine.png',
         enname: 'Nine',
-        jpname: 'Kyuu'),
-    Numbers(
+        jpname: 'Kyuu',
+        sound: 'sounds/numbers/number_nine_sound.mp3'),
+    Info(
         image: 'assets/images/numbers/number_ten.png',
         enname: 'Ten',
-        jpname: "Ju"),
+        jpname: "Ju",
+        sound: 'sounds/numbers/number_ten_sound.mp3'),
   ];
-  final Numbers one = Numbers(
-      image: 'assets/images/numbers/number_three.png',
-      enname: 'three',
-      jpname: 'dssdsd');
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,39 +79,11 @@ class NumbersPage extends StatelessWidget {
       ),
       body: Container(
         height: 1000,
-        child: ListView(
-          children: [
-            TranslateNumbers(
-              number: numbers[0],
-            ),
-            TranslateNumbers(
-              number: numbers[1],
-            ),
-            TranslateNumbers(
-              number: numbers[2],
-            ),
-            TranslateNumbers(
-              number: numbers[3],
-            ),
-            TranslateNumbers(
-              number: numbers[4],
-            ),
-            TranslateNumbers(
-              number: numbers[5],
-            ),
-            TranslateNumbers(
-              number: numbers[6],
-            ),
-            TranslateNumbers(
-              number: numbers[7],
-            ),
-            TranslateNumbers(
-              number: numbers[8],
-            ),
-            TranslateNumbers(
-              number: numbers[9],
-            ),
-          ],
+        child: ListView.builder(
+          itemCount: numbers.length,
+          itemBuilder: (context, index) => TranslateNumbers(
+            number: numbers[index],
+          ),
         ),
       ),
     );
